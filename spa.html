@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="robots" content="noindex">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Favicon Link -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+
+  <!-- flatpickr CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/themes/material_blue.css" integrity="sha256-vxrocMyy3+x+gmiNuoCS5Iv5rEurStwP6vnN5Mr1PfA=" crossorigin="anonymous">
+
+  <!-- aos CDN Link -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Reset Css CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
+  
+  <!-- Css Link -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>温泉</title>
+</head>
+<body>
+  <!-- .header -->
+  <header class="l-header p-header-lower">
+    <div class="l-header_inner">
+      <div class="l-header_left">
+        <a href="index.html" class="c-logo-header">
+          <figure>
+            <img src="./img/logo.png" alt="ロゴ画像">
+          </figure>
+          <span>温泉旅館</span>
+        </a>
+        <ul class="p-header-nav p-header-nav-lower fixed">
+          <li class="p-header-nav_item">
+            <a href="./room.html" class="p-header-nav_link">お部屋</a>
+          </li>
+          <li class="p-header-nav_item">
+            <a href="./menu.html" class="p-header-nav_link">お料理</a>
+          </li>
+          <li class="p-header-nav_item">
+            <a href="./spa.html" class="p-header-nav_link">温泉</a>
+          </li>
+        </ul>
+      </div>
+      <div class="l-header_right">
+        <div class="p-reserve-button">
+          <a href="#" class="c-reserve-button js-modal-open">
+            <img src="./img/calender.svg" alt="">
+            <span>宿泊予約</span>
+          </a>
+        </div>
+      </div>
+      <div class="c-drawer-icon js-drawer-open">
+        <div class="c-drawer-icon_bars">
+          <div class="c-drawer-icon_bar1 c-drawer-icon_bar-lower"></div>
+          <div class="c-drawer-icon_bar2 c-drawer-icon_bar-lower"></div>
+          <div class="c-drawer-icon_bar3 c-drawer-icon_bar-lower"></div>
+        </div>
+      </div>
+      <div class="p-drawer-content js-drawer-content">
+        <div class="p-drawer-content_items">
+          <div class="p-drawer-content_item">
+            <a href="./room.html">お部屋</a>
+          </div>
+          <div class="p-drawer-content_item">
+            <a href="./menu.html">お料理</a>
+          </div>
+          <div class="p-drawer-content_item">
+            <a href="./spa.html">温泉</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /.header -->
+
+  <!-- modal -->
+  <div class="p-modal js-modal">
+    <div class="p-modal_bg js-modal-close"></div>
+    <div class="p-modal_content">
+      <div class="p-modal_content_button">
+        <!-- <a href="" class="p-close-button js-modal-close">
+          <img src="./img/close.png" alt="閉じるボタン">
+        </a> -->
+      </div>
+      <div class="p-modal_reserve p-reserve-form">
+        <div class="p-reserve-form_head">宿泊予約</div>
+        <div class="p-reserve-form_content">
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-name">お名前</label>
+            </dt>
+            <div class="p-reserve-form_input">
+              <input id="your-name" type="text" placeholder="例：鈴木太郎">
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-email">メールアドレス</label>
+            </dt>
+            <div class="p-reserve-form_input">
+              <input id="your-email" type="email" placeholder="example@example.com">
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-kind">ご希望プラン<span>（ 空いているプランのみ表示されます ）</span></label>
+            </dt>
+            <div class="p-reserve-form_select">
+              <select id="your-kind" required>
+                <option value="" selected>プランを選択してください</option>
+                <option value="">【期間限定】海辺の四季旬彩、贅沢美味懐石プラン</option>
+                <option value="">平日に優雅に楽しむ、特別宿泊プラン</option>
+                <option value="">絶景貸切露天と個室会席を満喫できるファミリープラン</option>
+              </select>
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <label for="calender">
+              <dt class="p-reserve-form_title">日時選択</dt>
+            </label>
+            <div class="p-reserve-form_input">
+              <input id="calender" type="text" placeholder="日付を選択してください" class="flatpickr-input" readonly="readonly">
+            </div>
+          </div>
+        </div>
+        <div class="p-reserve-form_button">
+          <a href="" class="c-reserve-form_button">送信する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /modal -->
+
+  <!-- .p-lower-top-spa -->
+  <div class="p-lower-top p-lower-top-spa aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="p-lower-top_title">温泉</h1>
+  </div>
+  <!-- /.p-lower-top-spa -->
+
+  <!-- .l-inner -->
+  <div class="l-inner">
+    <div class="l-breadcrumb p-breadcrumb">
+      <span><a href="./index.html">トップ</a></span>
+      &gt;
+      <span><a href="./spa.html">温泉</a></span>
+    </div>
+  </div>
+  <!-- /.l-inner -->
+
+  <!-- .l-lower-spa -->
+  <div class="l-lower l-lower-spa">
+    <div class="l-inner">
+      <div class="l-lower_head l-lower-spa_head aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+        <p>親譲りの無鉄砲で小供の時<br>
+          から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事が<br>
+          ある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でも</p>
+      </div>
+      <div class="l-lower-spa_content p-spa-content">
+        <div class="p-spa-content_wrap p-content-wrap">
+          <figure class="p-spa-content_img p-content-img aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            <img src="./img/spa/spa01.jpg" alt="">
+          </figure>
+          <div class="p-spa-content_description p-content-description">
+            <h2 class="p-spa-content_title p-content-title aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">タイトルタイトルタイトル</h2>
+            <div class="p-spa-content_lead p-content-lead aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居<br>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居<br>ある。なぜそんな無闇をしたと聞く人があるかも知れ</div>
+          </div>
+        </div>
+        <div class="p-spa-content_wrap p-content-wrap">
+          <figure class="p-spa-content_img p-content-img p-content-img-right aos-init" data-aos="fade-up" data-aos-duration="1000">
+            <img src="./img/spa/spa02.jpg" alt="">
+          </figure>
+          <div class="p-spa-content_description p-spa-content_description-left p-content-description p-content-description-left">
+            <h2 class="p-spa-content_title p-content-title aos-init" data-aos="fade-up" data-aos-duration="1000">タイトルタイトルタイトル</h2>
+            <div class="p-spa-content_lead p-content-lead aos-init" data-aos="fade-up" data-aos-duration="1000">親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居<br class="u-bigpc-only">る時分学校の二階から飛び降りて一週間ほど腰を抜かした事が<br>ある。なぜそんな無闇をしたと聞く</div>
+          </div>
+        </div>
+      </div>
+      <div class="l-lower-spa_feature p-spa-feature aos-init" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="p-spa-feature_head">温泉の効能</h2>
+        <div class="p-spa-feature_table">
+          <table>
+            <tbody>
+              <tr>
+                <th>タイトル</th>
+                <td>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一</td>
+              </tr>
+              <tr>
+                <th>タイトル</th>
+                <td>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一</td>
+              </tr>
+              <tr>
+                <th>タイトル</th>
+                <td>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.l-lower-spa -->
+
+  <!-- footer -->
+  <footer class="l-footer p-footer aos-init">
+    <div class="l-inner" data-aos="fade-up" data-aos-duration="1000">
+      <ul class="l-footer_nav p-footer-nav">
+        <li class="p-footer-nav_item">
+          <a href="./room.html">お部屋</a>
+        </li>
+        <li class="p-footer-nav_item">
+          <a href="./menu.html">お料理</a>
+        </li>
+        <li class="p-footer-nav_item">
+          <a href="./spa.html">温泉</a>
+        </li>
+      </ul>
+      <div class="l-footer_info p-footer-info">
+        <div class="p-footer-info_logo">
+          <img src="./img/logo.png" alt="ロゴ画像">
+        </div>
+        <span class="p-footer-info_text">温泉旅館</span>
+        <div class="p-footer-infoWrap">
+          <div class="p-footer-info_address">
+            <span>〒000-0000</span>
+            <p>愛知県蒲郡市xxxxxxxxxxx</p>
+          </div>
+          <div class="p-footer-info_tel">
+            <span>TEL.000-0000-0000</span>
+            FAX.00-0000-0000
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer_copyright p-copyright">
+      <small class="p-copyright_text">Copyright&nbsp;&copy;&nbsp;温泉旅館&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+    </div>
+  </footer>
+  <!-- /footer -->
+  
+  <!-- flatpickr CDN Link -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+
+  <!-- aos CDN Link -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- jquery CDN Link -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+  <!-- JS Link -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
