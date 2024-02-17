@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="robots" content="noindex">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Favicon Link -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+
+  <!-- flatpickr CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/themes/material_blue.css" integrity="sha256-vxrocMyy3+x+gmiNuoCS5Iv5rEurStwP6vnN5Mr1PfA=" crossorigin="anonymous">
+
+  <!-- aos CDN Link -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Reset Css CDN Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
+  
+  <!-- Css Link -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>温泉旅館</title>
+</head>
+<body>
+  <!-- .header -->
+  <header id="js-header" class="l-header p-header">
+    <div class="l-header_inner">
+      <div class="l-header_left">
+        <h1 class="l-header_logo">
+          <a href="index.html" class="c-logo-header">
+            <div class="js-logo-before">
+              <figure>
+                <img src="./img/logo.png" alt="ロゴ画像">
+              </figure>
+              <span>温泉旅館</span>
+            </div>
+            <div class="js-logo-after">
+              <figure>
+                <img src="./img/logo.png" alt="ロゴ画像">
+              </figure>
+              <span>温泉旅館</span>
+            </div>
+          </a>
+        </h1>
+        <ul class="p-header-nav">
+          <li class="p-header-nav_item">
+            <a href="./room.html" class="p-header-nav_link">お部屋</a>
+          </li>
+          <li class="p-header-nav_item">
+            <a href="./menu.html" class="p-header-nav_link">お料理</a>
+          </li>
+          <li class="p-header-nav_item">
+            <a href="./spa.html" class="p-header-nav_link">温泉</a>
+          </li>
+        </ul>
+      </div>
+      <div class="l-header_right">
+        <div class="p-reserve-button">
+          <a href="#" class="c-reserve-button js-modal-open">
+            <img src="./img/calender.svg" alt="">
+            <span>宿泊予約</span>
+          </a>
+        </div>
+      </div>
+      <div class="c-drawer-icon js-drawer-open">
+        <div class="c-drawer-icon_bars">
+          <div class="c-drawer-icon_bar1"></div>
+          <div class="c-drawer-icon_bar2"></div>
+          <div class="c-drawer-icon_bar3"></div>
+        </div>
+      </div>
+      <div class="p-drawer-content js-drawer-content">
+        <div class="p-drawer-content_items">
+          <div class="p-drawer-content_item">
+            <a href="./room.html">お部屋</a>
+          </div>
+          <div class="p-drawer-content_item">
+            <a href="./menu.html">お料理</a>
+          </div>
+          <div class="p-drawer-content_item">
+            <a href="./spa.html">温泉</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /.header -->
+
+  <!-- modal -->
+  <div class="p-modal js-modal">
+    <div class="p-modal_bg js-modal-close"></div>
+    <div class="p-modal_content">
+      <div class="p-modal_content_button">
+        <!-- <a href="" class="p-close-button js-modal-close">
+          <img src="./img/close.png" alt="閉じるボタン">
+        </a> -->
+      </div>
+      <div class="p-modal_reserve p-reserve-form">
+        <div class="p-reserve-form_head">宿泊予約</div>
+        <div class="p-reserve-form_content">
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-name">お名前</label>
+            </dt>
+            <div class="p-reserve-form_input">
+              <input id="your-name" type="text" placeholder="例：鈴木太郎">
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-email">メールアドレス</label>
+            </dt>
+            <div class="p-reserve-form_input">
+              <input id="your-email" type="email" placeholder="example@example.com">
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <dt class="p-reserve-form_title">
+              <label for="your-kind">ご希望プラン<span>（ 空いているプランのみ表示されます ）</span></label>
+            </dt>
+            <div class="p-reserve-form_select">
+              <select id="your-kind" required>
+                <option value="" selected>プランを選択してください</option>
+                <option value="">【期間限定】海辺の四季旬彩、贅沢美味懐石プラン</option>
+                <option value="">平日に優雅に楽しむ、特別宿泊プラン</option>
+                <option value="">絶景貸切露天と個室会席を満喫できるファミリープラン</option>
+              </select>
+            </div>
+          </div>
+          <div class="p-reserve-form_item">
+            <label for="calender">
+              <dt class="p-reserve-form_title">日時選択</dt>
+            </label>
+            <div class="p-reserve-form_input">
+              <input id="calender" type="text" placeholder="日付を選択してください" class="flatpickr-input" readonly="readonly">
+            </div>
+          </div>
+        </div>
+        <div class="p-reserve-form_button">
+          <a href="" class="c-reserve-form_button">送信する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /modal -->
+
+  <!-- .p-mv -->
+  <div class="p-mv">
+    <div class="p-mv_img"></div>
+    <div class="p-mv_img"></div>
+    <div class="p-mv_img"></div>
+    <div class="p-mv_inner">
+      <div class="p-mv_leadWrap">
+        <h2 class="p-mv_lead1">タイトル</h2>
+        <h2 class="p-mv_lead2">タイトルタイトル</h2>
+      </div>
+    </div>
+  </div>
+  <!-- /.p-mv -->
+
+  <!-- .l-top -->
+  <div class="l-top">
+    <!-- .l-top_description -->
+    <div class="l-top_description p-top-description">
+      <div class="l-inner">
+        <div class="p-top-description_area">
+          <h2 class="p-top-description_title aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            <p>テキスト</p>
+            <p>テキストテキスト</p>
+          </h2>
+          <p class="p-top-description_text aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            親譲りの無鉄砲で小供の時<br class="u-hidden-sp">から損ばかりしている。小学校に居る時分<br class="u-hidden-sp">学校の二階から飛び
+          </p>
+          <p class="p-top-description_text aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            親譲りの無鉄砲で小供の時<br class="u-hidden-sp">から損ばかりしている。小学校に居る時分<br class="u-hidden-sp">学校の二階から飛び降りて一週間ほど腰を
+          </p>
+          <p class="p-top-description_text aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            親譲りの無鉄砲で小供の時<br class="u-hidden-sp">から損ばかりしている。小学校に居る時分<br class="u-hidden-sp">学校の二階から飛び
+          </p>
+          <p class="p-top-description_text2 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+            温泉旅館
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_room -->
+    <div class="l-top_room p-top-room">
+      <div class="p-room_wrap aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+        <figure class="p-room_img">
+          <img src="./img/room-top.jpg" alt="">
+        </figure>
+        <div class="p-room_description">
+          <h2 class="p-room_title">タイトルタイトル<br>タイトルタイトルタイトル</h2>
+          <div class="p-room_textBlock">
+            <p class="p-room_text">
+              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時<br class="u-bigpc-only">から損ばかりしている。
+              <br>小学校に居る時分学校の二階から飛び降りて一週間ほど腰を
+            </p>
+          </div>
+          <div class="p-room_button">
+            <a href="./room.html" class="c-about-button">お部屋について</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_menu -->
+    <div class="l-top_menu p-top-menu">
+      <div class="p-menu_wrap aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+        <figure class="p-menu_img">
+          <img src="./img/menu-top.jpg" alt="">
+        </figure>
+        <div class="p-menu_description">
+          <h2 class="p-menu_title">タイトル<br class="u-hidden-sp">タイトルタイトル</h2>
+          <div class="p-menu_textBlock">
+            <p class="p-menu_text">
+              親譲りの無鉄砲で小供の時から<br class="u-bigpc-only">損ばかりしている。小学校に居る時分
+              <br>学校の二階から飛び降りて一週間ほど腰を<br class="u-bigpc-only">抜かした事がある。
+            </p>
+          </div>
+          <div class="p-menu_button">
+            <a href="./menu.html" class="c-about-button c-about-button-menu">料理について</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_spa -->
+    <div class="l-top_spa p-top-spa">
+      <div class="p-spa_wrap aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+        <figure class="p-spa_img">
+          <img src="./img/spa-top.jpg" alt="">
+        </figure>
+        <div class="p-spa_description">
+          <h2 class="p-spa_title">タイトルタイトルタイトル<br>タイトルタイトルタイトル</h2>
+          <div class="p-spa_textBlock">
+            <p class="p-spa_text">
+              親譲りの無鉄砲で小供の時から<br>損ばかりしている。小学校に居る時分学校の二階から
+              <br class="u-bigpc-only">飛び降りて一週間ほど腰を
+            </p>
+          </div>
+          <div class="p-spa_button">
+            <a href="./spa.html" class="c-about-button c-about-button-spa">温泉について</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_plan -->
+    <div class="l-top_plan p-top-plan">
+      <div class="l-inner">
+        <div class="p-top-plan_titleWrap">
+          <div class="c-section-title-img">
+            <img src="./img/logo.png" alt="ロゴ画像">
+          </div>
+          <div class="p-top-plan_title c-section-title">おすすめご宿泊プラン</div>
+        </div>
+        <div class="p-top-plan_items aos-init" data-aos="fade-up" data-aos-duration="1000">
+          <a href="#" class="p-top-plan_item p-plan-item">
+            <div class="p-plan-item_img">
+              <img src="./img/plan01.jpg" alt="">
+            </div>
+            <div class="p-plan-item_title">
+              タイトルタイトルタイトルタイトル
+            </div>
+            <p class="p-plan-item_text">
+              親譲りの無鉄砲で小供の時から損<br class="u-bigpc-only">ばかりしている。小学校に居る時分学校の二階から
+              <br class="u-bigpc-only">飛び降りて一週間ほど腰を
+            </p>
+          </a>
+          <a href="#" class="p-top-plan_item p-plan-item">
+            <div class="p-plan-item_img">
+              <img src="./img/plan02.jpg" alt="【期間限定】温海蟹をたっぷりと 愉しむプラン。">
+            </div>
+            <div class="p-plan-item_title">
+              タイトルタイトルタイトルタイトル
+            </div>
+            <p class="p-plan-item_text">
+              親譲りの無鉄砲で小供の時から損<br class="u-bigpc-only">ばかりしている。小学校に居る時分学校の二階から
+              <br class="u-bigpc-only">飛び降りて一週間ほど腰を
+            </p>
+          </a>
+          <a href="#" class="p-top-plan_item p-plan-item">
+            <div class="p-plan-item_img">
+              <img src="./img/plan03.jpg" alt="【平日限定】贅沢美味懐石プラン。 海辺の四季旬彩プラン。">
+            </div>
+            <div class="p-plan-item_title">
+              タイトルタイトルタイトルタイトル
+            </div>
+            <p class="p-plan-item_text">
+              親譲りの無鉄砲で小供の時から損<br class="u-bigpc-only">ばかりしている。小学校に居る時分学校の二階から
+              <br class="u-bigpc-only">飛び降りて一週間ほど腰を
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_news -->
+    <div class="l-top_news p-top-news">
+      <div class="l-inner">
+        <div class="p-top-news_titleWrap">
+          <div class="c-section-title-img">
+            <img src="./img/logo.png" alt="ロゴ画像">
+          </div>
+          <div class="p-top-news_title c-section-title">お知らせ</div>
+        </div>
+        <div class="p-top-news_items p-news_item aos-init" data-aos="fade-up" data-aos-duration="1000">
+          <div class="p-news-item_linkWrap">
+            <ul class="p-news_item_tab p-item-tab">
+              <li class="p-item-tab_list">
+                <a class="is-active">営業情報</a>
+              </li>
+              <li class="p-item-tab_list">
+                <a>その他</a>
+              </li>
+            </ul>
+          </div>
+          <!-- 営業情報 -->
+          <div class="p-item-tab_content is-active">
+            <div class="p-news-item_cards">
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news01.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">親譲りの無鉄砲で小供の時から損ば</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news02.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">かりしている。小学校に居る時分学校</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news03.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">の二階から飛び降りて一週間ほど腰</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news04.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">を抜かした事がある。なぜそんな無闇</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news01.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">をしたと聞く人があるかも知れぬ。別</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news02.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">段深い理由でもない。新築の二階か</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- その他 -->
+          <div class="p-item-tab_content">
+            <div class="p-news-item_cards">
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news04.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">新築の二階から首を出していたら、</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news03.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">同級生の一人が冗談に、いくら威張</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news02.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">っても、そこから飛び降りる事は出来</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news01.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">まい。弱虫やーい。と囃したからであ</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news04.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">る。小使に負ぶさって帰って来た時、</div>
+                </div>
+              </a>
+              <a href="#" class="p-news-item_card">
+                <div class="p-news-item_img">
+                  <img src="./img/news03.jpg" alt="">
+                </div>
+                <div class="p-news-item_body">
+                  <time class="p-news-item_date">☓☓☓☓.☓☓.☓☓</time>
+                  <div class="p-news-item_title">おやじが大きな眼をして二階ぐらいか</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- .l-top_access -->
+    <div class="l-top_access p-top-access">
+      <div class="p-top-access_inner">
+        <div class="p-top-access_titleWrap">
+          <div class="c-section-title-img">
+            <img src="./img/logo.png" alt="ロゴ画像">
+          </div>
+          <div class="p-top-access_title c-section-title">アクセス</div>
+        </div>
+        <div class="p-access_wrap aos-init" data-aos="fade-up" data-aos-duration="1000">
+          <figure class="p-access_img">
+            <img src="./img/access.jpg" alt="アクセス">
+          </figure>
+          <div class="p-access_infoWrap">
+            <div class="p-info_address">
+              <span>住所</span>
+              <p>〒000-0000<br>愛知県蒲郡市xxxxxxxxxx</p>
+            </div>
+            <div class="p-info_tel">
+              <span>TEL/FAX</span>
+              <p>000-0000-0000/00-0000-0000</p>
+            </div>
+            <div class="p-info_open">
+              <span>営業時間</span>
+              <p>14:00-23:00</p>
+            </div>
+            <div class="p-info_message">＊4名以上のご予約の場合は、最寄り駅の「蒲郡駅」より送迎が可能ですので、 ご連絡ください。</div>
+          </div>
+        </div>
+        <div class="p-access_map aos-init" data-aos="fade-up" data-aos-duration="1000">
+          <div class="iframe-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52408.59637723097!2d137.1916524756447!3d34.81758170665042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004c72269565b9d%3A0x9147f2ae0439082f!2z5oSb55-l55yM6JKy6YOh5biC!5e0!3m2!1sja!2sjp!4v1705793744873!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.l-top -->
+
+  <!-- footer -->
+  <footer class="l-footer p-footer aos-init">
+    <div class="l-inner" data-aos="fade-up" data-aos-duration="1000">
+      <ul class="l-footer_nav p-footer-nav">
+        <li class="p-footer-nav_item">
+          <a href="./room.html">お部屋</a>
+        </li>
+        <li class="p-footer-nav_item">
+          <a href="./menu.html">お料理</a>
+        </li>
+        <li class="p-footer-nav_item">
+          <a href="./spa.html">温泉</a>
+        </li>
+      </ul>
+      <div class="l-footer_info p-footer-info">
+        <div class="p-footer-info_logo">
+          <img src="./img/logo.png" alt="フッターロゴ画像">
+        </div>
+        <span class="p-footer-info_text">温泉旅館</span>
+        <div class="p-footer-infoWrap">
+          <div class="p-footer-info_address">
+            <span>〒000-0000</span>
+            <p>愛知県蒲郡市xxxxxxxxxxx</p>
+          </div>
+          <div class="p-footer-info_tel">
+            <span>TEL.000-0000-0000</span>
+            FAX.00-0000-0000
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer_copyright p-copyright">
+      <small class="p-copyright_text">Copyright&nbsp;&copy;&nbsp;温泉旅館&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+    </div>
+  </footer>
+  <!-- /footer -->
+  
+  <!-- flatpickr CDN Link -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+
+  <!-- aos CDN Link -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- jquery CDN Link -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+  <!-- JS Link -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
